@@ -9,13 +9,9 @@
 </p>
 
 <h3 align="center">
-	<a href="">About</a>
+	<a href="#about">About</a>
 	<span> · </span>
-	<a href="">How to use</a>
-	<span> · </span>
-	<a href="">Makefile</a>
-	<span> · </span>
-	<a href="">Structure</a>
+	<a href="#how-to-use">How to use</a>
 	<span> · </span>
 	<a href="">Test</a>
 	<span> · </span>
@@ -32,6 +28,40 @@
 ## About
 
 `ft_printf` is a project at [42](https://42.fr) where students reimplement the C [printf](https://fr.wikipedia.org/wiki/Printf) function. This challenge emphasizes mastering [variadic functions](https://en.wikipedia.org/wiki/Variadic_function), string formatting, and deep C programming insights.
+
+## How to use
+
+### Clone the repository
+
+```shell
+git clone https://github.com/late9dev/42_printf.git ft_printf
+
+cd ft_printf
+
+make all
+```
+
+### Create a test
+
+```shell
+vim test.c
+```
+
+```c
+#include "ft_printf.h"
+
+int	main(void)
+{
+	ft_printf("Hello World !\n My name is %s.\n I'm %d.\n", "Lucas", 25);
+	return (0);
+}
+```
+
+### Compile & run
+
+```shell
+gcc -Wall -Wextra -Werror test.c -o test -L. -lftprintf
+```
 
 ---
 
