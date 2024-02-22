@@ -1,39 +1,40 @@
+<h1 style="opacity: 0; position: absolute;">
+	42 ft_printf
+</h1>
+
 <p align="center">
-  <a href="https://revealjs.com">
+  <a href="https://42.fr">
   <img src="./ressources/dark_banner_ft_printf.png" alt="readme banner ft_printf">
   </a>
 </p>
 
-<p align="center">
-	<b><i>Because putnbr and putstr aren’t enough</i></b><br>
-</p>
+<h3 align="center">
+	<a href="">About</a>
+	<span> · </span>
+	<a href="">How to use</a>
+	<span> · </span>
+	<a href="">Makefile</a>
+	<span> · </span>
+	<a href="">Structure</a>
+	<span> · </span>
+	<a href="">Test</a>
+	<span> · </span>
+	<a href="">Libft</a>
+</h3>
 
 <p align="center">
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/late9dev/42_printf">
 	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/late9dev/42_printf">
 </p>
 
-<h3 align="center">
-	<a href="#%EF%B8%8F-about">About</a>
-	<span> · </span>
-	<a href="#%EF%B8%8F-usage">Usage</a>
-	<span> · </span>
-	<a href="#-testing">Testing</a>
-</h3>
-
 --- 
 
-## 💡 About the project
+## About
 
-> _This project is pretty straight forward. You will recode printf. You will mainly learn how to use variadic arguments._
-
-	This project consists of coding a library that contains a simplified version (more
-	information below) of the printf function.
-
-For more detailed information, look at the [**subject of this project**](https://github.com/Surfi89/42cursus/tree/main/Subject%20PDFs).
+`ft_printf` is a project at [42](https://42.fr) where students reimplement the C [printf](https://fr.wikipedia.org/wiki/Printf) function. This challenge emphasizes mastering [variadic functions](https://en.wikipedia.org/wiki/Variadic_function), string formatting, and deep C programming insights.
 
 ---
 
 <div align="center">
-  MIT licensed | Copyright © 2024 Lucas Warlop, https://lucaswarlop.com
+	<i>Student at <a href="https://42.fr"><b>42 Paris</b></a>.</i>
 </div>
