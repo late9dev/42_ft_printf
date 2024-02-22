@@ -1,41 +1,69 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lwarlop <lwarlop@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/21 20:49:40 by lwarlop           #+#    #+#              #
+#    Updated: 2024/02/22 01:05:11 by lwarlop          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libftprintf.a
 
-SRCS = ft_printf.c \
-       ft_printf_c.c \
-       ft_printf_s.c \
-       ft_printf_p.c \
-       ft_printf_n.c \
-       ft_printf_u.c \
-       ft_printf_h.c \
-       ft_printf_percent.c \
+SRCS_DIR	=	src/
+OBJS_DIR	=	obj/
 
-OBJS = $(SRCS:.c=.o)
+CC			=	gcc
+CFLAGS		=	-Wall -Wextra -Werror
 
-CC = gcc
+RMFLAGS		=	rm -rf
+ARFLAGS		=	ar -rcs
 
-CFLAGS = -Wall -Wextra -Werror
+SRCS		=	$(wildcard $(SRCS_DIR)*.c)
+
+TOTAL_FILES	:=	$(words $(SRCS))
+
+OBJS		=	$(SRCS:$(SRCS_DIR)%.c=$(OBJS_DIR)%.o)
 
 LIBFT = libft
 
 LIBFT_LIB = $(LIBFT)/libft.a
 
-all: $(NAME)
+RESET = \033[0;39m
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
 
-$(NAME): $(OBJS)
-	make -C $(LIBFT)
-	cp $(LIBFT_LIB) ./$(NAME)
-	ar rcs $(NAME) $(OBJS)
+all:		$(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME):	$(OBJS)
+	@make -C $(LIBFT)
+	@cp $(LIBFT_LIB) ./$(NAME)
+	@$(ARFLAGS) $(NAME) $(OBJS)
+	@echo "$(CYAN) PRINTF $(RESET) : $(GREEN) COMPILED ($(TOTAL_FILES) files) $(RESET)"
+
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
+	@mkdir -p $(@D)
+	@echo "$(CYAN) PRINTF $(RESET) : $(YELLOW) Compiling $< $(RESET)"
+	@$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
-	make -C $(LIBFT) clean
+	@$(RMFLAGS) $(OBJS_DIR)
+	@make -C $(LIBFT) clean
+	@echo "$(CYAN) PRINTF $(RESET) : $(RED) CLEAN $(RESET)"
 
-fclean: clean
-	rm -f $(NAME)
-	make -C $(LIBFT) fclean
+fclean:	clean
+	@$(RM) $(NAME)
+	@make -C $(LIBFT) fclean
+	@echo "$(CYAN) PRINTF $(RESET) : $(RED) FULL CLEAN $(RESET)"
 
-re: fclean all
+re:	fclean all
 
+.PHONY: all clean fclean re

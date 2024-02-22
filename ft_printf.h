@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_s.c                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwarlop <lwarlop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 08:39:51 by lwarlop           #+#    #+#             */
-/*   Updated: 2024/02/21 08:47:18 by lwarlop          ###   ########.fr       */
+/*   Created: 2024/02/21 08:41:58 by lwarlop           #+#    #+#             */
+/*   Updated: 2024/02/22 00:33:17 by lwarlop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_printf_s(char *s)
-{
-	int	i;
+# include "libft/libft.h"
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-	i = 0;
-	if (s == NULL)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (s[i] != '\0')
-	{
-		ft_putchar_fd(s[i], 1);
-		i++;
-	}
-	return (i);
-}
+int	ft_handle_format(const char format, va_list args);
+int	ft_printf(const char *format, ...);
+
+#endif

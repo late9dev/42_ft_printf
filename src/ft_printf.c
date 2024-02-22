@@ -6,11 +6,13 @@
 /*   By: lwarlop <lwarlop@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:41:09 by lwarlop           #+#    #+#             */
-/*   Updated: 2024/02/21 18:00:24 by lwarlop          ###   ########.fr       */
+/*   Updated: 2024/02/22 00:29:54 by lwarlop          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
+
+int	ft_handle_format(const char format, va_list args);
 
 int	ft_printf(const char *format, ...)
 {
@@ -30,7 +32,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{
-			printed_chars += ft_printf_c(format[i]);
+			printed_chars += ft_print_char(format[i]);
 		}
 		i++;
 	}
@@ -44,18 +46,20 @@ int	ft_handle_format(const char format, va_list args)
 
 	printed_chars = 0;
 	if (format == 'c')
-		printed_chars += ft_printf_c(va_arg(args, int));
+		printed_chars += ft_print_char(va_arg(args, int));
 	else if (format == 's')
-		printed_chars += ft_printf_s(va_arg(args, char *));
+		printed_chars += ft_print_str(va_arg(args, char *));
 	else if (format == 'p')
-		printed_chars += ft_printf_p(va_arg(args, void *));
+		printed_chars += ft_print_ptr(va_arg(args, unsigned long long));
 	else if (format == 'd' || format == 'i')
-		printed_chars += ft_printf_n(va_arg(args, int));
+		printed_chars += ft_print_nbr(va_arg(args, int));
 	else if (format == 'u')
-		printed_chars += ft_printf_u(va_arg(args, unsigned int));
-	else if (format == 'x' || format == 'X')
-		printed_chars += ft_printf_h(va_arg(args, unsigned int), format);
+		printed_chars += ft_print_unsigned(va_arg(args, unsigned int));
+	else if (format == 'x')
+		printed_chars += ft_print_hexa_lower(va_arg(args, unsigned int));
+	else if (format == 'X')
+		printed_chars += ft_print_hexa_upper(va_arg(args, unsigned int));
 	else if (format == '%')
-		printed_chars += ft_printf_percent();
+		printed_chars += ft_print_percent();
 	return (printed_chars);
 }
