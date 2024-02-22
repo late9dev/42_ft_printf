@@ -8,22 +8,20 @@
   </a>
 </p>
 
-<h3 align="center">
-	<a href="#about">About</a>
-	<span> · </span>
-	<a href="#how-to-use">How to use</a>
-	<span> · </span>
-	<a href="">Test</a>
-	<span> · </span>
-	<a href="">Libft</a>
-</h3>
+<p align="center">
+	<b>
+		<a href="#about">About</a>
+		<span> · </span>
+		<a href="#how-to-use">How to use</a>
+		<span> · </span>
+		<a href="#test">Test</a>
+	</b>
+</p>
 
 <p align="center">
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/late9dev/42_printf">
 	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/late9dev/42_printf">
 </p>
-
---- 
 
 ## About
 
@@ -33,17 +31,19 @@
 
 ### Clone the repository
 
-```shell
-git clone https://github.com/late9dev/42_printf.git ft_printf
+I use my [libft](https://github.com/late9dev/42_libft.git) in this project. I  include it as a git submodules (it's like alias for git). That why i add the `--recurse-submodules` option.
 
-cd ft_printf
+```bash
+git clone --recurse-submodules https://github.com/late9dev/42_printf.git ft_printf
+```
 
-make all
+```bash
+cd ft_printf && make
 ```
 
 ### Create a test
 
-```shell
+```bash
 vim test.c
 ```
 
@@ -52,19 +52,25 @@ vim test.c
 
 int	main(void)
 {
-	ft_printf("Hello World !\n My name is %s.\n I'm %d.\n", "Lucas", 25);
+	ft_printf("Hello World !\nMy name is %s.\nI'm %d.\n", "Lucas", 25);
 	return (0);
 }
 ```
 
 ### Compile & run
 
-```shell
-gcc -Wall -Wextra -Werror test.c -o test -L. -lftprintf
+```bash
+gcc -Wall -Wextra -Werror test.c -o test -L. -lftprintf && ./test
 ```
+
+## Test
+
+I passed all the mandatory [Francinette](https://github.com/xicodomingues/francinette) tests.
+
+<img src="./ressources/francinette_tests.png" alt="Francinette printf tests passed">
 
 ---
 
 <div align="center">
-	<i>Student at <a href="https://42.fr"><b>42 Paris</b></a>.</i>
+	<i>By a Student of <a href="https://42.fr"><b>42 Paris</b></a>.</i>
 </div>
