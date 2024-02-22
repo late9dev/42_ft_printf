@@ -1,4 +1,4 @@
-<h1 style="opacity: 0; position: absolute;">
+<h1 hidden>
 	42 ft_printf
 </h1>
 
