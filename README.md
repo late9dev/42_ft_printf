@@ -1,4 +1,4 @@
-<h1 align="center" style="display: none">42 ft_printf</h1>
+<h1 align="center">42 ft_printf</h1>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./ressources/github-readme-banner-printf-light.png">
