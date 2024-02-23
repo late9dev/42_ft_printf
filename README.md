@@ -1,12 +1,10 @@
-<h1 hidden>
-	42 ft_printf
-</h1>
+<h1 align="center" style="display: none">42 ft_printf</h1>
 
-<p align="center">
-  <a href="https://42.fr">
-  <img src="./ressources/dark_banner_ft_printf.png" alt="readme banner ft_printf">
-  </a>
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./ressources/github-readme-banner-printf-light.png">
+  <source media="(prefers-color-scheme: light)" srcset="./ressources/github-readme-banner-printf-dark.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="./ressources/github-readme-banner-printf-color.png">
+</picture>
 
 <p align="center">
 	<b>
