@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lwarlop <lwarlop@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lucaswarlop <lucaswarlop@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:41:09 by lwarlop           #+#    #+#             */
-/*   Updated: 2024/02/22 00:29:54 by lwarlop          ###   ########.fr       */
+/*   Updated: 2024/03/25 20:21:45 by lucaswarlop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && ft_strchr("cspdiuxX%", format[i + 1]) != 0)
 		{
 			i++;
 			printed_chars += ft_handle_format(format[i], args);
@@ -61,5 +61,7 @@ int	ft_handle_format(const char format, va_list args)
 		printed_chars += ft_print_hexa_upper(va_arg(args, unsigned int));
 	else if (format == '%')
 		printed_chars += ft_print_percent();
+	else
+		return (-1);
 	return (printed_chars);
 }
